@@ -200,7 +200,7 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- explorer keybind
-vim.keymap.set('n', '<leader>e', ':Ex <CR>') -- :Ex function on the leader e press
+vim.keymap.set('n', 'ee', ':Lexplore<CR>') -- :Ex function on the leader e press
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
