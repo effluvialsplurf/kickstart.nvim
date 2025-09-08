@@ -20,6 +20,12 @@ vim.g.have_nerd_font = true
 vim.o.number = true
 vim.o.relativenumber = true
 
+-- change my tabs
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+
 vim.o.mouse = 'a' -- optional mouse usage
 
 -- Don't show the mode, since it's already in the status line
@@ -117,6 +123,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
+
+-- [[ Commands ]]
+vim.api.nvim_create_user_command('OpenPdf', function()
+  local filepath = vim.api.nvim_buf_get_name(0)
+  if filepath:match '%.typ$' then
+    local pdf_path = filepath:gsub('%.typ$', '.pdf')
+    vim.system { 'open', pdf_path }
+  end
+end, {})
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -545,7 +560,7 @@ require('lazy').setup({
         pyright = {},
         elixirls = {},
         ts_ls = {},
-        -- rust_analyzer = {},
+        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
