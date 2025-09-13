@@ -110,6 +110,9 @@ vim.keymap.set('n', 'ee', ':Ex<CR>') -- :Ex function when u smash e
 -- turn on diagnostics in a window
 vim.keymap.set('n', 'dof', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true, desc = 'Open floating diag window' })
 
+-- should jump to definition
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
