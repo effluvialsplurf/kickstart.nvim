@@ -21,9 +21,9 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- change my tabs
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
 vim.o.expandtab = true
 
 vim.o.mouse = 'a' -- optional mouse usage
@@ -105,13 +105,16 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ my keymaps ]]
 
 -- explorer keybind
-vim.keymap.set('n', 'ee', ':Ex<CR>') -- :Ex function when u smash e
+vim.keymap.set('n', '<leader>ee', ':Ex<CR>') -- :Ex function when u smash e
 
 -- turn on diagnostics in a window
 vim.keymap.set('n', 'dof', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true, desc = 'Open floating diag window' })
 
 -- should jump to definition
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true })
+vim.keymap.set('n', 'gd', function()
+  vim.cmd 'tabnew'
+  vim.lsp.buf.definition()
+end, { noremap = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
