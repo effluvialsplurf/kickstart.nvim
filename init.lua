@@ -105,7 +105,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ my keymaps ]]
 
 -- explorer keybind
-vim.keymap.set('n', '<leader>ee', ':Ex<CR>') -- :Ex function when u smash e
+vim.keymap.set('n', '<leader>e', ':Ex<CR>') -- :Ex function when u smash e
 
 -- turn on diagnostics in a window
 vim.keymap.set('n', 'dof', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true, desc = 'Open floating diag window' })
